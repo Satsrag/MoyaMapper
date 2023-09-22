@@ -407,7 +407,7 @@ extension _MMJSONDecoder {
             default:
                 _value = _json.rawValue
             }
-            if _value != nil { _dict[key] = _value }
+            if (_value != nil && !(_value is NSNull)) { _dict[key] = _value }
         }
         self.storage.push(container: _dict)
         defer { self.storage.popContainer() }
